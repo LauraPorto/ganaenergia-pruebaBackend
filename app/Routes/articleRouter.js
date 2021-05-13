@@ -5,18 +5,21 @@ const articleController = require('../Controllers/articleController');
 //POST
 router.post ('/', async (req, res) => {
     try{
-
+        let createArticle = await articleController.createArticle(new Article(req.body));
+        let status = 'Article created !';
+        res.json({createArticle, status})
     }catch{
         return res.status(500).json({
             message: error.message
         });
     }
-})
+});
 
 //GET
 router.get ('/', async (req, res) => {
     try{
-
+        let allArticles = await articleController.allArticles();
+        res.json(allArticles);
     }catch{
         return res.status(500).json({
             message: error.message
@@ -26,7 +29,9 @@ router.get ('/', async (req, res) => {
 
 router.get ('/:name', async (req, res) => {
     try{
-
+        let name = req.params.name;
+        let findByName = await articleController.articleByName(name);
+        res.json(findByName);
     }catch{
         return res.status(500).json({
             message: error.message
@@ -36,7 +41,9 @@ router.get ('/:name', async (req, res) => {
 
 router.get ('/:id', async (req, res) => {
     try{
-
+        let id = req.params.id;
+        let articleId = await articleController.articleById(id);
+        res.json(articleId);
     }catch{
         return res.status(500).json({
             message: error.message
@@ -47,7 +54,10 @@ router.get ('/:id', async (req, res) => {
 //PUT
 router.put ('/:id', async (req, res) => {
     try{
-
+        let id = req.params.id;
+        let articleUpdate = await articleController.updateArticle(id);
+        let status = 'Article updated successfully !';
+        res.json({articleUpdate, status});
     }catch{
         return res.status(500).json({
             message: error.message
@@ -58,7 +68,10 @@ router.put ('/:id', async (req, res) => {
 //DELETE
 router.delete ('/:id', async (req, res) => {
     try{
-
+        let id = req.params.id;
+        let articleDelete = await articleController.deleteArticle(id);
+        let status = 'Article deleted successfully !';
+        res.json({articleDelete, status});
     }catch{
         return res.status(500).json({
             message: error.message
