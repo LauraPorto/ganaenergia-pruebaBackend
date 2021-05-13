@@ -61,7 +61,8 @@ router.get ('/:id', async (req, res) => {
 router.put ('/:id', async (req, res) => {
     try{
         let id = req.params.id;
-        let userUpdate = await userController.updateUser(id);
+        let user = req.body;
+        let userUpdate = await userController.updateUser(id, user);
         let status = 'User updated successfully !';
         res.json({status, userUpdate});
     }catch (error){

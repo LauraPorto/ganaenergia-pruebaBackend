@@ -19,7 +19,7 @@ class ArticleController {
     };
 
     async updateArticle(id, article){
-        return Article.findByIdAndUpdate(id, article);
+        return Article.findByIdAndUpdate(id, article, {new: true});
     };
 
     async deleteArticle(id){

@@ -31,7 +31,7 @@ class UserController {
   };
 
   async updateUser(id,user) {
-    return User.findByIdAndUpdate(id,user, {new: true});
+    return User.findByIdAndUpdate(id, user, {new: true});
   };
 
   async deleteUser(id) {
