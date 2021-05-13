@@ -15,7 +15,7 @@ class ArticleController {
     };
 
     async articleByName(name){
-        return Article.findOne(name);
+        return Article.findOne({name: name});
     };
 
     async updateArticle(id, article){

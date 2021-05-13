@@ -4,7 +4,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const userSchema = mongoose.Schema({
     articleId : {
         type: ObjectId,
-        ref: 'article'
+        ref: 'Article'
     },
     username : {
         type: String,

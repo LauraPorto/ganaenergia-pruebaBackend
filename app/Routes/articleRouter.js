@@ -5,7 +5,7 @@ const articleController = require('../Controllers/articleController');
 //POST
 router.post ('/', async (req, res) => {
     try{
-        let createArticle = await articleController.createArticle(new Article(req.body));
+        let createArticle = await articleController.createArticle(req.body);
         let status = 'Article created !';
         res.json({createArticle, status})
     }catch(error){

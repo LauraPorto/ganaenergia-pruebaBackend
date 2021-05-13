@@ -7,7 +7,6 @@ class UserController {
 
   async createUser(user) {
     user.password = await bcrypt.hash(user.password,5)
-    console.log(user)
    return User.create(user);
   };
 
@@ -32,20 +31,20 @@ class UserController {
   };
 
   async updateUser(id,user) {
-    return User.findByIdAndUpdate(id,user);
+    return User.findByIdAndUpdate(id,user, {new: true});
   };
 
   async deleteUser(id) {
     return User.findByIdAndRemove(id);
-  }
+  };
 
   async userById(id) {
     return User.findById(id);
-  }
+  };
 
   async userAll() {
     return User.find();
-  }
+  };
 
 };
 
