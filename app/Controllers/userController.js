@@ -39,8 +39,8 @@ class UserController {
     return User.findByIdAndRemove(id);
   }
 
-  async deleteAll(deleteUser) {
-    return User.deleteMany(deleteUser);
+  async userById(id) {
+    return User.findById(id);
   }
 
   async userAll(allUser) {
