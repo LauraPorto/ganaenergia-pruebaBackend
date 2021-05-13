@@ -11,15 +11,6 @@ class UserController {
    return User.create(user);
   };
 
-//   async signIn(user) { 
-//     const errorMessage = { error_message: 'Wrong email or password' }
-//     const user_list = await User.find(user)
-
-//     if (user_list.length < 1) {
-//       return errorMessage
-//     }
-//     return {user: user_list}
-//   }
 
   async login(email,password) {
     const user =  await User.findOne({email});
