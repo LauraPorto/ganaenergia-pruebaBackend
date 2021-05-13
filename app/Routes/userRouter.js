@@ -10,7 +10,7 @@ router.post ('/', async (req, res) => {
         let user = await userController.createUser(req.body);
         let status = 'User created !';
         return res.json({user, status});
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -26,7 +26,7 @@ router.post ('/login', async (req, res) => {
         let user = jwt.user;
         let status = 'Success Login !';
         res.json({token, user, status});
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -38,7 +38,7 @@ router.get ('/', async (req, res) => {
     try{
         let allUsers = await userController.userAll();
         return res.json(allUsers);
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -50,7 +50,7 @@ router.get ('/:id', async (req, res) => {
         let id = req.params.id;
         let userId = await userController.userById(id);
         return res.json(userId);
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -64,7 +64,7 @@ router.put ('/:id', async (req, res) => {
         let userUpdate = await userController.updateUser(id);
         let status = 'User updated successfully !';
         res.json({status, userUpdate});
-    }catch{
+    }catch (error){
         return res.status(500).json({
             message: error.message
         });
@@ -75,10 +75,10 @@ router.put ('/:id', async (req, res) => {
 router.delete ('/:id', async (req, res) => {
     try{
         let id = req.params.id;
-        let userDelete = await userController.delteUser(id);
+        let userDelete = await userController.deleteUser(id);
         let status = 'User deleted successfully !';
         res.json({status, userDelete});
-    }catch{
+    }catch (error){
         return res.status(500).json({
             message: error.message
         });

@@ -8,7 +8,7 @@ router.post ('/', async (req, res) => {
         let createArticle = await articleController.createArticle(new Article(req.body));
         let status = 'Article created !';
         res.json({createArticle, status})
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -20,7 +20,7 @@ router.get ('/', async (req, res) => {
     try{
         let allArticles = await articleController.allArticles();
         res.json(allArticles);
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -32,7 +32,7 @@ router.get ('/:name', async (req, res) => {
         let name = req.params.name;
         let findByName = await articleController.articleByName(name);
         res.json(findByName);
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -44,7 +44,7 @@ router.get ('/:id', async (req, res) => {
         let id = req.params.id;
         let articleId = await articleController.articleById(id);
         res.json(articleId);
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -58,7 +58,7 @@ router.put ('/:id', async (req, res) => {
         let articleUpdate = await articleController.updateArticle(id);
         let status = 'Article updated successfully !';
         res.json({articleUpdate, status});
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
@@ -72,7 +72,7 @@ router.delete ('/:id', async (req, res) => {
         let articleDelete = await articleController.deleteArticle(id);
         let status = 'Article deleted successfully !';
         res.json({articleDelete, status});
-    }catch{
+    }catch(error){
         return res.status(500).json({
             message: error.message
         });
