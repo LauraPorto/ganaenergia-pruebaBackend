@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET || 'secretword';
 
+
 class UserController {
 
   async createUser(user) {
@@ -21,8 +22,8 @@ class UserController {
     };
 
     const payload = {
-        userId: user.id,
-        tokenCreationDate: new Date,
+      userId: user.id,
+      tokenCreationDate: new Date,
     }
 
     const token = jwt.sign(payload, secret);

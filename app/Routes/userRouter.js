@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userController = require('../Controllers/userController');
 const jwt = require('jsonwebtoken');
+//const auth = require('../Middleware/auth');
 
 //Rutas para el Usuario
 
