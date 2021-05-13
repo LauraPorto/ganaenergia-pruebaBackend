@@ -5,7 +5,7 @@ const secret = process.env.JWT_SECRET || 'secretword';
 
 class UserController {
 
-  async create(user) {
+  async createUser(user) {
     user.password = await bcrypt.hash(user.password,5)
     console.log(user)
    return User.create(user);
@@ -31,11 +31,11 @@ class UserController {
     
   };
 
-  async update(id,user) {
+  async updateUser(id,user) {
     return User.findByIdAndUpdate(id,user);
   };
 
-  async delete(id) {
+  async deleteUser(id) {
     return User.findByIdAndRemove(id);
   }
 
@@ -43,8 +43,8 @@ class UserController {
     return User.findById(id);
   }
 
-  async userAll(allUser) {
-    return User.find(allUser);
+  async userAll() {
+    return User.find();
   }
 
 };

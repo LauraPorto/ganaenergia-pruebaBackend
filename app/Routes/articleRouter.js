@@ -7,7 +7,9 @@ router.post ('/', async (req, res) => {
     try{
 
     }catch{
-
+        return res.status(500).json({
+            message: error.message
+        });
     }
 })
 
@@ -16,7 +18,9 @@ router.get ('/', async (req, res) => {
     try{
 
     }catch{
-        
+        return res.status(500).json({
+            message: error.message
+        });
     }
 })
 
@@ -24,7 +28,9 @@ router.get ('/:name', async (req, res) => {
     try{
 
     }catch{
-        
+        return res.status(500).json({
+            message: error.message
+        });
     }
 });
 
@@ -32,7 +38,9 @@ router.get ('/:id', async (req, res) => {
     try{
 
     }catch{
-        
+        return res.status(500).json({
+            message: error.message
+        });
     }
 });
 
@@ -41,7 +49,9 @@ router.put ('/:id', async (req, res) => {
     try{
 
     }catch{
-        
+        return res.status(500).json({
+            message: error.message
+        });
     }
 });
 
@@ -50,7 +60,9 @@ router.delete ('/:id', async (req, res) => {
     try{
 
     }catch{
-        
+        return res.status(500).json({
+            message: error.message
+        });
     }
 })
 
