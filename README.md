@@ -31,6 +31,9 @@ Tras descargar las dependencias, ejecutamos el comando de docker que arranca el 
 docker-composer up
 ```
 
+Se puede probar esta API a través de su coleccón en Postman.
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2ac026b060196e1c37d4?action=collection%2Fimport)
+
 ## Tecnologías <a name = "tecnologias"></a>
 
 - [Express](#https://expressjs.com/)
